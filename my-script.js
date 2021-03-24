@@ -18,10 +18,10 @@ function indexTable() {
 
     data.forEach(element => {
       var $row = `
-          <div class="card border-danger mb-3 col-md-6 col-sd-1">
+          <div class="card border-danger mb-3 col-md-6 col-sm-1">
             <div class="card-header text-center" style="font-size: 1.3rem" id="title">${element.title}</div>
               <div class="card-body">
-                <div> <img  class="img-thumbnail" src="${element.image}"  alt="jadu"></div>
+                <div> <img  class="img-thumbnail" src="${element.image}"  alt="Image of product"></div>
                 <div> <p>${element.description} </p></div>
                 <br>
                 <div class="buy"> <p>Pris: <span>${element.price.toFixed(2)}</span> € 
