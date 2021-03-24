@@ -6,6 +6,7 @@ if ($cart == null)
 updateCartIcon()
 
 function indexTable() {
+  // test
   $("#shopCartText").text($cartCounter)
   const $products = $("#products")
   fetch('https://webacademy.se/fakestore/')
