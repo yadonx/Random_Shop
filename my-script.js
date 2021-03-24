@@ -8,7 +8,7 @@ updateCartIcon()
 function indexTable() {
   $("#shopCartText").text($cartCounter)
   const $products = $("#products")
-  fetch('http://webacademy.se/fakestore/')
+  fetch('https://webacademy.se/fakestore/')
     .then(res => res.json())
     .then(data => generateHtml(data))
     .catch(err => console.error(error));
