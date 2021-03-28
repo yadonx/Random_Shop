@@ -67,16 +67,20 @@ var $row = `
 $products.append($row)
 }
 
+String.prototype.isNumber = function(){return /^\d+$/.test(this);}
+
 function sendOrder(){
 $("#sendOrderBtn").click(function(){
   let $phonenr = $("#input-phonenr")
   let $name = $("#input-name")
   let $adress = $("#input-adress")
   let $email = $("#input-email")
-  $("input:hidden").val(null);
+
+  
   if($cartCounter == 0){
   alert("The cart is empty!")
   clearFields($name,$phonenr,$adress,$email)
+
 }else if($phonenr.val() == "" || $email.val() == "" || $adress.val() == "" || $name.val() == ""){
     alert("Fill in all the red fields!")
     if($name.val() == "")
@@ -87,8 +91,15 @@ $("#sendOrderBtn").click(function(){
     $adress.addClass("fail")
     if($email.val() == "")
     $email.addClass("fail")
-    
+   
+  }else if($name.val().length < 2){
+    alert("Need to be more than 2 letters in Name!")
+  }else if($email.val().indexOf("@") == -1){
+    alert("You need to put in a valid E-mail adress!")
+  }else if(!$phonenr.val().isNumber() || $phonenr.val().length != 10){
+    alert("Phone number can only contain numbers and must be 10 numbers!")
   }else{
+
     // Här ska en funktion för att skicka order till kund / db xD
     alert("Thanks for ordering!\nOrder sent to: " + $email.val() + "\nName: " + $name.val() +"\nAdress: " + $adress.val())
     clearFields($name,$phonenr,$adress,$email)
