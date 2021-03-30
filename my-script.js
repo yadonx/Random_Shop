@@ -1,8 +1,7 @@
 let $cartCounter = 0
 
-let $cart = JSON.parse(localStorage.getItem("cart"))
-if ($cart == null)
-  $cart = new Array()
+let $cart = JSON.parse(localStorage.getItem("cart")) || new Array()
+
 updateCartIcon()
 
 function indexTable() {
